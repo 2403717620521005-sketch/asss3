@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { students, getNextId } = require('../data/students');
 
-// GET /students — Fetch all students
 router.get('/', (req, res) => {
   res.status(200).json({
     success: true,
@@ -12,7 +11,7 @@ router.get('/', (req, res) => {
   });
 });
 
-// POST /students — Add a new student
+
 router.post('/', (req, res) => {
   const { name, age, department, grade } = req.body;
 
@@ -40,7 +39,7 @@ router.post('/', (req, res) => {
   });
 });
 
-// PUT /students/:id — Update student details
+
 router.put('/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const index = students.findIndex((s) => s.id === id);
@@ -69,7 +68,7 @@ router.put('/:id', (req, res) => {
   });
 });
 
-// DELETE /students/:id — Delete a student
+
 router.delete('/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const index = students.findIndex((s) => s.id === id);
